@@ -1,0 +1,25 @@
+@mixin backdrop-blur($filter: var(--glass-blur)) {
+  backdrop-filter: $filter;
+  -webkit-backdrop-filter: $filter;
+}
+
+@mixin glass-panel($bg: var(--glass-bg)) {
+  background: $bg;
+  @include backdrop-blur;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+@mixin glass-panel-hover {
+  box-shadow: var(--glass-shadow-hover);
+  transform: translateY(-3px);
+}
+
+@mixin glass-pill {
+  border-radius: var(--radius-pill);
+}
+
+@mixin focus-ring {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}

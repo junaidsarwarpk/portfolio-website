@@ -1,0 +1,53 @@
+// ─── Typography colors (tweak here) ─────────────────────────────────────────
+$color-text: #2e3340;
+$color-text-muted: #545b67;
+
+// ─── Palette ────────────────────────────────────────────────────────────────
+$color-bg: #eef0f8;
+$color-bg-deep: #e4e8f4;
+$color-accent: #7b61ff;
+$color-accent-light: rgba(123, 97, 255, 0.14);
+$color-logo-blue: #80cfff;
+$color-logo-dark: #1a1a1a;
+$color-border: rgba(255, 255, 255, 0.55);
+
+// ─── Layout ─────────────────────────────────────────────────────────────────
+$container-max: 1200px;
+$header-height: 72px;
+$radius-sm: 14px;
+$radius-md: 22px;
+$radius-lg: 28px;
+$radius-pill: 999px;
+
+// ─── Shadows ────────────────────────────────────────────────────────────────
+$glass-shadow:
+  0 8px 32px rgba(31, 38, 135, 0.07),
+  0 2px 8px rgba(31, 38, 135, 0.04),
+  inset 0 1px 0 rgba(255, 255, 255, 0.9),
+  inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+
+$glass-shadow-hover:
+  0 16px 48px rgba(31, 38, 135, 0.12),
+  0 4px 12px rgba(31, 38, 135, 0.06),
+  inset 0 1px 0 rgba(255, 255, 255, 0.95);
+
+$shadow-photo: 0 24px 64px rgba(26, 26, 46, 0.18);
+
+// ─── Glass defaults (overridden at runtime via data/glass.ts on <html>) ─────
+$glass-bg: rgba(255, 255, 255, 0.28);
+$glass-bg-strong: rgba(255, 255, 255, 0.42);
+$glass-bg-subtle: rgba(255, 255, 255, 0.18);
+$glass-border: rgba(255, 255, 255, 0.78);
+$glass-border-soft: rgba(255, 255, 255, 0.45);
+$glass-blur: blur(48px) saturate(190%);
+$glass-header-blur: blur(28px) saturate(190%);
+$glass-header-blur-scrolled: blur(40px) saturate(210%);
+$glass-header-track: rgba(255, 255, 255, 0.12);
+$glass-header-track-scrolled: rgba(255, 255, 255, 0.22);
+$glass-hero-photo-top: rgba(255, 255, 255, 0.42);
+$glass-hero-photo-mid: rgba(255, 255, 255, 0.32);
+$glass-hero-photo-bottom: rgba(237, 233, 255, 0.38);
+
+// ─── Motion ─────────────────────────────────────────────────────────────────
+$hero-float-duration: 5s;
+$hero-float-distance: -16px;

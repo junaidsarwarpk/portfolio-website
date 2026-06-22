@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="diamondGloss" x1="32" y1="4" x2="32" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3A3A3A"/>
+      <stop offset="45%" stop-color="#1A1A1A"/>
+      <stop offset="100%" stop-color="#0D0D0D"/>
+    </linearGradient>
+    <linearGradient id="blueGloss" x1="32" y1="16" x2="32" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#A8E4FF"/>
+      <stop offset="100%" stop-color="#80CFFF"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 4 L58 32 L32 60 L6 32 Z" fill="url(#diamondGloss)" stroke="#2A2A2A" stroke-width="0.5"/>
+  <path d="M32 4 L58 32 L32 32 Z" fill="#FFFFFF" opacity="0.08"/>
+  <path d="M32 16 L32 48" stroke="url(#blueGloss)" stroke-width="4.5" stroke-linecap="round"/>
+  <path d="M18 32 L32 48 L32 16" stroke="url(#blueGloss)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M32 16 L46 32 L32 48" stroke="url(#blueGloss)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+</svg>

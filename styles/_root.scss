@@ -1,0 +1,100 @@
+@use 'variables' as *;
+
+:root {
+  --color-bg: #{$color-bg};
+  --color-bg-deep: #{$color-bg-deep};
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-accent: #{$color-accent};
+  --color-accent-light: #{$color-accent-light};
+  --color-logo-blue: #{$color-logo-blue};
+  --color-logo-dark: #{$color-logo-dark};
+  --color-border: #{$color-border};
+  --font-sans: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --container-max: #{$container-max};
+  --header-height: #{$header-height};
+  --radius-sm: #{$radius-sm};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --radius-pill: #{$radius-pill};
+  --glass-bg: #{$glass-bg};
+  --glass-bg-strong: #{$glass-bg-strong};
+  --glass-bg-subtle: #{$glass-bg-subtle};
+  --glass-border: #{$glass-border};
+  --glass-border-soft: #{$glass-border-soft};
+  --glass-blur: #{$glass-blur};
+  --glass-header-blur: #{$glass-header-blur};
+  --glass-header-blur-scrolled: #{$glass-header-blur-scrolled};
+  --glass-header-track: #{$glass-header-track};
+  --glass-header-track-scrolled: #{$glass-header-track-scrolled};
+  --glass-hero-photo-top: #{$glass-hero-photo-top};
+  --glass-hero-photo-mid: #{$glass-hero-photo-mid};
+  --glass-hero-photo-bottom: #{$glass-hero-photo-bottom};
+  --glass-shadow: #{$glass-shadow};
+  --glass-shadow-hover: #{$glass-shadow-hover};
+  --shadow-photo: #{$shadow-photo};
+  --ambient-bg: linear-gradient(160deg, #{$color-bg} 0%, #e8ecf6 40%, #f0eef8 100%);
+  --surface-raised: rgba(255, 255, 255, 0.55);
+  --surface-muted: rgba(255, 255, 255, 0.45);
+  --surface-subtle: rgba(255, 255, 255, 0.4);
+  --surface-inset: rgba(255, 255, 255, 0.85);
+  --header-track-fade: rgba(255, 255, 255, 0.06);
+  --header-track-fade-scrolled: rgba(255, 255, 255, 0.1);
+  --header-glass-scrolled: rgba(255, 255, 255, 0.36);
+  --hero-highlight-bg: linear-gradient(
+    135deg,
+    rgba(123, 97, 255, 0.22),
+    rgba(128, 207, 255, 0.28)
+  );
+  --hero-highlight-border: rgba(123, 97, 255, 0.15);
+  --hero-social-divider: rgba(255, 255, 255, 0.45);
+  --orb-opacity: 0.55;
+}
+
+html.dark {
+  --color-bg: #0f1117;
+  --color-bg-deep: #161822;
+  --color-text: #e8eaef;
+  --color-text-muted: #9aa3b2;
+  --color-accent: #9b87ff;
+  --color-accent-light: rgba(155, 135, 255, 0.18);
+  --color-logo-blue: #6eb8f0;
+  --color-logo-dark: #f0f2f7;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.1);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-soft: rgba(255, 255, 255, 0.08);
+  --glass-header-track: rgba(15, 17, 23, 0.72);
+  --glass-header-track-scrolled: rgba(15, 17, 23, 0.88);
+  --glass-hero-photo-top: rgba(255, 255, 255, 0.08);
+  --glass-hero-photo-mid: rgba(255, 255, 255, 0.05);
+  --glass-hero-photo-bottom: rgba(123, 97, 255, 0.12);
+  --glass-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  --glass-shadow-hover:
+    0 16px 48px rgba(0, 0, 0, 0.45),
+    0 4px 12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-photo: 0 24px 64px rgba(0, 0, 0, 0.45);
+  --ambient-bg: linear-gradient(160deg, #0f1117 0%, #141824 40%, #12131c 100%);
+  --surface-raised: rgba(255, 255, 255, 0.1);
+  --surface-muted: rgba(255, 255, 255, 0.08);
+  --surface-subtle: rgba(255, 255, 255, 0.06);
+  --surface-inset: rgba(255, 255, 255, 0.12);
+  --header-track-fade: rgba(255, 255, 255, 0.03);
+  --header-track-fade-scrolled: rgba(255, 255, 255, 0.05);
+  --header-glass-scrolled: rgba(255, 255, 255, 0.12);
+  --hero-highlight-bg: linear-gradient(
+    135deg,
+    rgba(155, 135, 255, 0.28),
+    rgba(110, 184, 240, 0.22)
+  );
+  --hero-highlight-border: rgba(155, 135, 255, 0.25);
+  --hero-social-divider: rgba(255, 255, 255, 0.1);
+  --orb-opacity: 0.35;
+}
