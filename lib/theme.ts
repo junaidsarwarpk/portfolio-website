@@ -2,7 +2,14 @@ export type ThemePreference = "light" | "dark" | "system";
 
 export const THEME_STORAGE_KEY = "theme";
 
+/** Set to true when re-enabling the header theme toggle. */
+export const DARK_MODE_ENABLED = false;
+
 export function resolveTheme(preference: ThemePreference): "light" | "dark" {
+  if (!DARK_MODE_ENABLED) {
+    return "light";
+  }
+
   if (preference === "light" || preference === "dark") {
     return preference;
   }
@@ -17,6 +24,10 @@ export function resolveTheme(preference: ThemePreference): "light" | "dark" {
 }
 
 export function getStoredThemePreference(): ThemePreference {
+  if (!DARK_MODE_ENABLED) {
+    return "light";
+  }
+
   if (typeof window === "undefined") {
     return "system";
   }

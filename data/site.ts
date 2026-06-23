@@ -5,6 +5,7 @@ export const site = {
   location: "Lahore, Pakistan",
   copyrightYear: 2026,
   linkedin: "https://www.linkedin.com/in/junaidsarwar1013",
+  calendly: "https://calendly.com/junaidsarwar001/30min",
   social: [
     {
       label: "LinkedIn",

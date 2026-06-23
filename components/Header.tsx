@@ -31,6 +31,14 @@ export default function Header() {
             </ul>
           </nav>
           <div className="header-actions">
+            <a
+              href={site.calendly}
+              className="btn btn-primary btn-header"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Schedule a Call
+            </a>
             <ThemeToggle />
             <button
               type="button"

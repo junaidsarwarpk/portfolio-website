@@ -23,6 +23,15 @@ type ContactItem = ContactLinkItem | ContactPhonesItem;
 
 const contactItems: ContactItem[] = [
   {
+    id: "calendly",
+    kind: "link",
+    label: "Schedule a Call",
+    description: "Book a 30-minute meeting",
+    href: site.calendly,
+    icon: "/static/icons/calendar.svg",
+    external: true,
+  },
+  {
     id: "whatsapp",
     kind: "link",
     label: "WhatsApp",
@@ -80,8 +89,8 @@ export default function Contact() {
           Contact
         </h2>
         <p className="contact-intro">
-          Ready to collaborate on your next project? Reach out via WhatsApp, email,
-          phone, LinkedIn, or Upwork.
+          Ready to collaborate on your next project? Schedule a call, or reach out
+          via WhatsApp, email, phone, LinkedIn, or Upwork.
         </p>
         <div className="contact-grid">
           {contactItems.map((item) =>
