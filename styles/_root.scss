@@ -27,6 +27,9 @@
   --glass-header-blur-scrolled: #{$glass-header-blur-scrolled};
   --glass-header-track: #{$glass-header-track};
   --glass-header-track-scrolled: #{$glass-header-track-scrolled};
+  --glass-header-bg: #{$glass-header-bg};
+  --glass-header-bg-scrolled: #{$glass-header-bg-scrolled};
+  --glass-header-nav-bg: #{$glass-header-nav-bg};
   --glass-hero-photo-top: #{$glass-hero-photo-top};
   --glass-hero-photo-mid: #{$glass-hero-photo-mid};
   --glass-hero-photo-bottom: #{$glass-hero-photo-bottom};
@@ -38,9 +41,9 @@
   --surface-muted: rgba(255, 255, 255, 0.45);
   --surface-subtle: rgba(255, 255, 255, 0.4);
   --surface-inset: rgba(255, 255, 255, 0.85);
-  --header-track-fade: rgba(255, 255, 255, 0.06);
-  --header-track-fade-scrolled: rgba(255, 255, 255, 0.1);
-  --header-glass-scrolled: rgba(255, 255, 255, 0.36);
+  --header-track-fade: rgba(255, 255, 255, 0.28);
+  --header-track-fade-scrolled: rgba(255, 255, 255, 0.38);
+  --header-glass-scrolled: rgba(255, 255, 255, 0.92);
   --hero-highlight-bg: linear-gradient(
     135deg,
     rgba(123, 97, 255, 0.22),

@@ -1,0 +1,52 @@
+@mixin liquid-glass-surface {
+  --lg-x: 50%;
+  --lg-y: 50%;
+  position: relative;
+  isolation: isolate;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.28s ease;
+    z-index: 0;
+    will-change: opacity;
+  }
+
+  &::before {
+    background: radial-gradient(
+      circle 220px at var(--lg-x) var(--lg-y),
+      rgba(255, 255, 255, 0.28) 0%,
+      rgba(255, 255, 255, 0.12) 28%,
+      rgba(123, 97, 255, 0.06) 48%,
+      transparent 72%
+    );
+    filter: blur(18px);
+    mix-blend-mode: soft-light;
+  }
+
+  &::after {
+    background: radial-gradient(
+      circle 120px at var(--lg-x) var(--lg-y),
+      rgba(255, 255, 255, 0.22) 0%,
+      rgba(255, 255, 255, 0.08) 35%,
+      transparent 68%
+    );
+    filter: blur(10px);
+    mix-blend-mode: overlay;
+  }
+
+  &.is-liquid-active {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  &.is-liquid-active::before,
+  &.is-liquid-active::after {
+    opacity: 1;
+  }
+}

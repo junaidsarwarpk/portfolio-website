@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
+import LiquidGlassScript from "@/components/LiquidGlassScript";
 import NavScript from "@/components/NavScript";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeScript from "@/components/ThemeScript";
+import { getGlassCssVariables } from "@/data/glass";
 import "./globals.scss";
 
 const inter = Inter({
@@ -36,7 +38,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={inter.variable}
+      style={getGlassCssVariables()}
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
       </head>
@@ -52,6 +59,7 @@ export default function RootLayout({
             <Header />
             <main>{children}</main>
             <NavScript />
+            <LiquidGlassScript />
           </div>
         </ThemeProvider>
       </body>

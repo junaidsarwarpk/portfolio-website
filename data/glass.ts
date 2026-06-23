@@ -23,8 +23,11 @@ export const glassConfig = {
   /** Header scroll blur — content passing behind the navbar */
   headerBlurPx: 28,
   headerBlurScrolledPx: 40,
-  headerTrackOpacity: 0.12,
-  headerTrackScrolledOpacity: 0.22,
+  headerBgOpacity: 0.82,
+  headerBgScrolledOpacity: 0.92,
+  headerNavBgOpacity: 0.9,
+  headerTrackOpacity: 0.5,
+  headerTrackScrolledOpacity: 0.62,
 
   /** Hero photo glass tint (lavender wash) */
   heroPhotoTintOpacity: 0.38,
@@ -41,6 +44,9 @@ export function getGlassCssVariables(): Record<string, string> {
     "--glass-blur": `blur(${c.blurPx}px) saturate(${c.saturate}%)`,
     "--glass-header-blur": `blur(${c.headerBlurPx}px) saturate(${c.saturate}%)`,
     "--glass-header-blur-scrolled": `blur(${c.headerBlurScrolledPx}px) saturate(${c.saturate + 20}%)`,
+    "--glass-header-bg": `rgba(255, 255, 255, ${c.headerBgOpacity})`,
+    "--glass-header-bg-scrolled": `rgba(255, 255, 255, ${c.headerBgScrolledOpacity})`,
+    "--glass-header-nav-bg": `rgba(255, 255, 255, ${c.headerNavBgOpacity})`,
     "--glass-header-track": `rgba(255, 255, 255, ${c.headerTrackOpacity})`,
     "--glass-header-track-scrolled": `rgba(255, 255, 255, ${c.headerTrackScrolledOpacity})`,
     "--glass-hero-photo-top": `rgba(255, 255, 255, ${c.bgOpacity + 0.14})`,

@@ -19,17 +19,6 @@ export default function Header() {
               className="logo-image"
             />
           </Link>
-          <nav className="site-nav" aria-label="Main navigation">
-            <ul className="nav-list">
-              {site.nav.map((item) => (
-                <li key={item.href}>
-                  <a href={item.href} className="nav-link">
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
           <div className="header-actions">
             <a
               href={site.calendly}
@@ -52,6 +41,17 @@ export default function Header() {
             </button>
           </div>
         </div>
+        <nav className="site-nav" aria-label="Main navigation">
+          <ul className="nav-list">
+            {site.nav.map((item) => (
+              <li key={item.href}>
+                <a href={item.href} className="nav-link">
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </header>
   );
