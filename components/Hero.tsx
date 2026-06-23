@@ -51,7 +51,7 @@ export default function Hero() {
             <div className="hero-photo-wrap">
               <Image
                 src="/static/images/profile.png"
-                alt="Junaid Sarwar"
+                alt="Junaid Sarwar — Senior Software Engineer, AI Developer and JavaScript Developer in Lahore, Pakistan"
                 width={730}
                 height={1000}
                 priority

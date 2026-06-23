@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
+import JsonLd from "@/components/JsonLd";
 import LiquidGlassScript from "@/components/LiquidGlassScript";
 import NavScript from "@/components/NavScript";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeScript from "@/components/ThemeScript";
 import { getGlassCssVariables } from "@/data/glass";
+import { buildSiteMetadata } from "@/lib/metadata";
 import "./globals.scss";
 
 const inter = Inter({
@@ -14,23 +16,7 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://junaidsarwar.com"),
-  title: "Junaid Sarwar | Senior AI & Frontend Architect",
-  description:
-    "Senior AI & Frontend Architect with 10+ years building scalable React and Angular platforms, NLP models, and enterprise AI systems.",
-  icons: {
-    icon: [{ url: "/static/images/logo.svg", type: "image/svg+xml" }],
-    apple: "/apple-icon.png",
-  },
-  openGraph: {
-    title: "Junaid Sarwar | Senior AI & Frontend Architect",
-    description:
-      "Senior AI & Frontend Architect specializing in React, Angular, NLP, and enterprise AI platforms.",
-    images: ["/static/images/profile.png"],
-    type: "website",
-  },
-};
+export const metadata: Metadata = buildSiteMetadata();
 
 export default function RootLayout({
   children,
@@ -46,6 +32,7 @@ export default function RootLayout({
     >
       <head>
         <ThemeScript />
+        <JsonLd />
       </head>
       <body suppressHydrationWarning>
         <ThemeProvider>
