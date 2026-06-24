@@ -6,7 +6,6 @@ import LiquidGlassScript from "@/components/LiquidGlassScript";
 import NavScript from "@/components/NavScript";
 import ThemeProvider from "@/components/ThemeProvider";
 import ThemeScript from "@/components/ThemeScript";
-import VisitTracker from "@/components/VisitTracker";
 import { getGlassCssVariables } from "@/data/glass";
 import { buildSiteMetadata } from "@/lib/metadata";
 import "./globals.scss";
@@ -48,7 +47,6 @@ export default function RootLayout({
             <main>{children}</main>
             <NavScript />
             <LiquidGlassScript />
-            <VisitTracker />
           </div>
         </ThemeProvider>
       </body>

@@ -2,6 +2,7 @@ import { appendVisitorLog, getClientIp } from "@/lib/visitor-log";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
@@ -10,7 +11,8 @@ export async function POST(request: Request) {
 
     return NextResponse.json({ ok: true, entry });
   } catch (error) {
-    console.error("Failed to log visitor:", error);
+    const message = error instanceof Error ? error.message : "Unknown error";
+    console.error("Failed to log visitor:", message);
     return NextResponse.json({ ok: false }, { status: 500 });
   }
 }

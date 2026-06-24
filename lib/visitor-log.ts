@@ -10,8 +10,12 @@ export type VisitorEntry = {
 const LOG_FILE = path.join(process.cwd(), "data", "visitor-log.json");
 const BLOB_PATHNAME = "data/visitor-log.json";
 
-function isBlobStorageEnabled(): boolean {
-  return Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+export function shouldUseBlobStorage(): boolean {
+  return (
+    Boolean(process.env.BLOB_READ_WRITE_TOKEN) ||
+    Boolean(process.env.BLOB_STORE_ID) ||
+    process.env.VERCEL === "1"
+  );
 }
 
 export function getClientIp(request: Request): string {
@@ -47,18 +51,22 @@ async function writeToFile(entries: VisitorEntry[]): Promise<void> {
 }
 
 async function readFromBlob(): Promise<VisitorEntry[]> {
-  const result = await get(BLOB_PATHNAME, {
-    access: "private",
-    useCache: false,
-  });
+  try {
+    const result = await get(BLOB_PATHNAME, {
+      access: "private",
+      useCache: false,
+    });
 
-  if (!result || result.statusCode !== 200 || !result.stream) {
+    if (!result || result.statusCode !== 200 || !result.stream) {
+      return [];
+    }
+
+    const raw = await new Response(result.stream).text();
+    const entries = JSON.parse(raw) as VisitorEntry[];
+    return Array.isArray(entries) ? entries : [];
+  } catch {
     return [];
   }
-
-  const raw = await new Response(result.stream).text();
-  const entries = JSON.parse(raw) as VisitorEntry[];
-  return Array.isArray(entries) ? entries : [];
 }
 
 async function writeToBlob(entries: VisitorEntry[]): Promise<void> {
@@ -75,7 +83,7 @@ export async function appendVisitorLog(ip: string): Promise<VisitorEntry> {
     timestamp: new Date().toISOString(),
   };
 
-  const blobEnabled = isBlobStorageEnabled();
+  const blobEnabled = shouldUseBlobStorage();
   const entries = blobEnabled ? await readFromBlob() : await readFromFile();
 
   entries.push(entry);
