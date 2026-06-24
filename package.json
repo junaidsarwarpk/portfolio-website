@@ -12,7 +12,8 @@
     "@vercel/blob": "^2.4.1",
     "next": "^15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "ua-parser-js": "^2.0.10"
   },
   "devDependencies": {
     "@types/node": "^20",

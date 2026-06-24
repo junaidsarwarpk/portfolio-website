@@ -1,4 +1,5 @@
-import { appendVisitorLog, getClientIp } from "@/lib/visitor-log";
+import { buildVisitorEntry } from "@/lib/visitor-meta";
+import { appendVisitorLog } from "@/lib/visitor-log";
 import { NextResponse } from "next/server";
 
 export const dynamic = "force-dynamic";
@@ -6,8 +7,7 @@ export const runtime = "nodejs";
 
 export async function POST(request: Request) {
   try {
-    const ip = getClientIp(request);
-    const entry = await appendVisitorLog(ip);
+    const entry = await appendVisitorLog(buildVisitorEntry(request));
 
     return NextResponse.json({ ok: true, entry });
   } catch (error) {

@@ -1,11 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
+import type { VisitorEntry } from "@/lib/visitor-meta";
 
-export type VisitorEntry = {
-  ip: string;
-  timestamp: string;
-};
+export type { VisitorEntry };
 
 const LOG_FILE = path.join(process.cwd(), "data", "visitor-log.json");
 const BLOB_PATHNAME = "data/visitor-log.json";
@@ -16,20 +14,6 @@ export function shouldUseBlobStorage(): boolean {
     Boolean(process.env.BLOB_STORE_ID) ||
     process.env.VERCEL === "1"
   );
-}
-
-export function getClientIp(request: Request): string {
-  const forwarded = request.headers.get("x-forwarded-for");
-  if (forwarded) {
-    return forwarded.split(",")[0]?.trim() || "unknown";
-  }
-
-  const realIp = request.headers.get("x-real-ip");
-  if (realIp) {
-    return realIp.trim();
-  }
-
-  return "unknown";
 }
 
 async function readFromFile(): Promise<VisitorEntry[]> {
@@ -77,9 +61,11 @@ async function writeToBlob(entries: VisitorEntry[]): Promise<void> {
   });
 }
 
-export async function appendVisitorLog(ip: string): Promise<VisitorEntry> {
+export async function appendVisitorLog(
+  data: Omit<VisitorEntry, "timestamp">,
+): Promise<VisitorEntry> {
   const entry: VisitorEntry = {
-    ip,
+    ...data,
     timestamp: new Date().toISOString(),
   };
 
