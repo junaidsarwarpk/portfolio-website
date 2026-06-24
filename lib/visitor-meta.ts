@@ -2,7 +2,8 @@ import { UAParser } from "ua-parser-js";
 
 export type VisitorEntry = {
   ip: string;
-  timestamp: string;
+  lastVisited: string;
+  visit_count: number;
   browser?: string;
   os?: string;
   device?: string;
@@ -14,6 +15,8 @@ export type VisitorEntry = {
   timezone?: string;
   userAgent?: string;
 };
+
+export type VisitorVisitData = Omit<VisitorEntry, "lastVisited" | "visit_count">;
 
 const VISITOR_HEADER_PREFIX = "x-visitor-";
 
@@ -94,7 +97,7 @@ function formatDevice(parser: InstanceType<typeof UAParser>): string | undefined
   return "desktop";
 }
 
-export function buildVisitorEntry(request: Request): Omit<VisitorEntry, "timestamp"> {
+export function buildVisitorEntry(request: Request): VisitorVisitData {
   const userAgent =
     headerOrForwarded(request, "user-agent") ??
     request.headers.get("user-agent") ??

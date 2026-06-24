@@ -1,9 +1,9 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { get, put } from "@vercel/blob";
-import type { VisitorEntry } from "@/lib/visitor-meta";
+import type { VisitorEntry, VisitorVisitData } from "@/lib/visitor-meta";
 
-export type { VisitorEntry };
+export type { VisitorEntry, VisitorVisitData };
 
 const LOG_FILE = path.join(process.cwd(), "data", "visitor-log.json");
 const BLOB_PATHNAME = "data/visitor-log.json";
@@ -61,16 +61,58 @@ async function writeToBlob(entries: VisitorEntry[]): Promise<void> {
   });
 }
 
+async function readEntries(source: "blob" | "file"): Promise<VisitorEntry[]> {
+  const raw =
+    source === "blob" ? await readFromBlob() : await readFromFile();
+  return raw.map(normalizeEntry);
+}
+
+function normalizeEntry(entry: VisitorEntry & { timestamp?: string }): VisitorEntry {
+  const { timestamp, ...rest } = entry;
+
+  return {
+    ...rest,
+    lastVisited: entry.lastVisited ?? timestamp ?? new Date().toISOString(),
+    visit_count: entry.visit_count ?? 1,
+  };
+}
+
 export async function appendVisitorLog(
-  data: Omit<VisitorEntry, "timestamp">,
+  data: VisitorVisitData,
 ): Promise<VisitorEntry> {
+  const now = new Date().toISOString();
+  const blobEnabled = shouldUseBlobStorage();
+  const entries = blobEnabled
+    ? await readEntries("blob")
+    : await readEntries("file");
+
+  const existingIndex = entries.findIndex((entry) => entry.ip === data.ip);
+
+  if (existingIndex >= 0) {
+    const existing = entries[existingIndex];
+    const updated: VisitorEntry = {
+      ...existing,
+      ...data,
+      visit_count: existing.visit_count + 1,
+      lastVisited: now,
+    };
+
+    entries[existingIndex] = updated;
+
+    if (blobEnabled) {
+      await writeToBlob(entries);
+    } else {
+      await writeToFile(entries);
+    }
+
+    return updated;
+  }
+
   const entry: VisitorEntry = {
     ...data,
-    timestamp: new Date().toISOString(),
+    visit_count: 1,
+    lastVisited: now,
   };
-
-  const blobEnabled = shouldUseBlobStorage();
-  const entries = blobEnabled ? await readFromBlob() : await readFromFile();
 
   entries.push(entry);
 
