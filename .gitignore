@@ -31,6 +31,9 @@ yarn-error.log*
 # env files
 .env*
 
+# visitor analytics (contains IP addresses)
+/data/visitor-log.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
