@@ -6,6 +6,7 @@ export const site = {
   copyrightYear: 2026,
   linkedin: "https://www.linkedin.com/in/junaidsarwar1013",
   calendly: "https://calendly.com/junaidsarwar001/30min",
+  formspark: "https://submit-form.com/Iuddi4itM",
   social: [
     {
       label: "LinkedIn",

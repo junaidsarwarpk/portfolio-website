@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "@/components/ContactForm";
 import { site } from "@/data/site";
 
 type ContactLinkItem = {
@@ -89,9 +90,11 @@ export default function Contact() {
           Contact
         </h2>
         <p className="contact-intro">
-          Ready to collaborate on your next project? Schedule a call, or reach out
-          via WhatsApp, email, phone, LinkedIn, or Upwork.
+          Ready to collaborate on your next project? Send a message through the form
+          below, or reach out directly via WhatsApp, email, phone, LinkedIn, or Upwork.
         </p>
+        <ContactForm />
+        <h3 className="subsection-title contact-channels-title">Direct Channels</h3>
         <div className="contact-grid">
           {contactItems.map((item) =>
             item.kind === "phones" ? (

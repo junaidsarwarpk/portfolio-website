@@ -11,6 +11,7 @@ const LIQUID_GLASS_SELECTOR = [
   ".experience-card",
   ".project-card",
   ".contact-intro",
+  ".contact-form",
   ".contact-card",
   ".contact-card-static",
   ".site-nav",
